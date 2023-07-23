@@ -15,8 +15,6 @@ spring:
         cluster-name: BJ
         namespace: 0fa8d57a-473d-4edd-bbd9-64fe101067f1 #dev环境
         ephemeral: true #服务注册到nacos时候，可以选择成为临时或者非临时实例，默认是临时实例。临时实例宕机时，会从nacos的服务列表中剔除，而非临时实例不会
-
-
 # eureka 配置  将provider1 注册到eureka的地址 服务名称和服务地址
 #eureka:
 #  client:
@@ -26,4 +24,5 @@ spring:
 #    instance-id: jcloud-provider3 #修改Eureka上的默认描述信息
 logging:
   level:
-    root: INFO
+    com:
+      cloud: debug #com.cloud为包路径

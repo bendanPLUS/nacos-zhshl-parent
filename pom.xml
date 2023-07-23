@@ -11,6 +11,7 @@
     <modules>
         <module>zhsl-stock</module>
         <module>nacos-demo-order</module>
+        <module>gateway</module>
     </modules>
     <groupId>top.hdsw</groupId>
     <artifactId>nacos-zhshl-parent</artifactId>
