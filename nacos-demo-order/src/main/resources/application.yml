@@ -1,0 +1,32 @@
+# 应用端口
+server:
+  port: 7901
+  servlet:
+    context-path:
+spring:
+  #application:
+    # 应用名称
+  #name: nacos-demo-order
+  #cloud:
+  #nacos:
+  #discovery:
+  #service: nacos-demo-order
+  #server-addr: localhost:8848
+  #cluster-name: BJ
+#namespace: 0fa8d57a-473d-4edd-bbd9-64fe101067f1 #dev环境
+
+
+# eureka 配置  将provider1 注册到eureka的地址 服务名称和服务地址
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://jorian:123456@localhost:8761/eureka
+#  instance:
+#    instance-id: jcloud-provider3 #修改Eureka上的默认描述信息
+logging:
+  level:
+    root: INFO
+
+zhshl-stock: # nacos中的服务id
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #设置负载均衡策略

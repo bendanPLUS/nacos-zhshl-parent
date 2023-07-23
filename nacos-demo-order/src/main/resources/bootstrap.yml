@@ -1,8 +1,13 @@
 spring:
+  application:
+    name: nacos-demo-order
+  profiles:
+    active: public #环境 nacos配置文件DataId对应 .xxx.public.yaml name: nacos-demo-order + active: public 组合就是 nacos-demo-order-public.yaml必须匹配一模一样
   cloud:
     nacos:
       discovery:
-        service: zhshl-order
+        service: nacos-demo-order #nacos服务管理-服务名 的名字
         server-addr: localhost:8848
-server:
-  port: 8082
+        namespace: 0fa8d57a-473d-4edd-bbd9-64fe101067f1 #dev环境
+      config:
+        file-extension: yaml #文件后缀名
