@@ -29,10 +29,11 @@ public class MyFeignLogger extends feign.Logger {
     protected void logRequest(String configKey, Level logLevel, Request request) {
         String url = request.url();
         String body = "";
-        if ( request.body() != null) {
-            body = request.body().toString();
+        if (request.body() != null) {
+            body = new String(request.body());
         }
-        log.info("Sending request {}\nbody: {}\nheader: {}", url, body, headers(request.headers()));
+        log.info("Sending {} request {}\nbody: {}\nheader: {}"
+                , request.httpMethod(), url, body, headers(request.headers()));
     }
 
     @Override

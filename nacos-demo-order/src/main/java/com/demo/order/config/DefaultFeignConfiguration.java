@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DefaultFeignConfiguration  {
+public class DefaultFeignConfiguration {
 
-     @Bean
-    public Logger.Level feignLogLevel(){
+    @Bean
+    public Logger.Level feignLogLevel() {
         return Logger.Level.FULL; // 日志级别为BASIC
     }
 

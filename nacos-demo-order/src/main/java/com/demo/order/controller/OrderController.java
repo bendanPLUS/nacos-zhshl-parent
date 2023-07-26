@@ -1,6 +1,7 @@
 package com.demo.order.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.demo.order.DTO.User;
 import com.demo.order.client.StockClient;
 import com.demo.order.config.PatterProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +35,7 @@ public class OrderController {
     public String now() {
         log.info("createOrder请求入参:{}");
         String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern(patterProperties.getDateformat()));
-        log.info("dateTime:{}",dateTime);
+        log.info("dateTime:{}", dateTime);
         return "验证配置的日期: " + dateTime;
     }
 
@@ -45,11 +46,16 @@ public class OrderController {
         log.info("调用consumer成功:{}", result);
         return "createOrder下单成功,库存响应: " + result;
     }
+
     //用feign调用
     @GetMapping("/order/create1")
     public String createOrder1(Integer productId, Integer userId) {
         log.info("createOrder-1请求入参:{}", productId);
-        String result = stockClient.reduce(productId);
+        //String result = stockClient.reduce(productId);
+        String result = "";
+        User user = new User();
+        user.setName("123");
+        stockClient.listUser(user);
         log.info("调用consumer成功:{}", result);
         return "createOrder-1 下单成功,库存响应: " + result;
     }
